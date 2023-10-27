@@ -18,7 +18,7 @@ class AnasayfaFragment : Fragment() {
         binding =FragmentAnasayfaBinding.inflate(inflater, container, false)
 
         binding.filmRv.layoutManager=StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
-          s
+          
         binding.toolbarAnaSayfa.title="KORE DİZİLERİ"
         val filmlerListesi=ArrayList<Filmler>()
         val f1=Filmler(1,"Introverted Boss","a",50)
