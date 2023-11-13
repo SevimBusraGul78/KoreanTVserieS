@@ -3,8 +3,10 @@ package com.a.b.koredizileri.ui.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.a.b.koredizileri.R
 import com.a.b.koredizileri.databinding.CardTasarimBinding
 import com.a.b.koredizileri.databinding.FragmentAnasayfaBinding
 import com.a.b.koredizileri.datta.entitty.Filmler
@@ -17,7 +19,7 @@ class FilmlerAdapter(var mContext: Context,var filmlerListesi:List<Filmler>)
     inner class CardTasarimTutucu(var tasarim:CardTasarimBinding):RecyclerView.ViewHolder(tasarim.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardTasarimTutucu {
-       val binding = CardTasarimBinding.inflate(LayoutInflater.from(mContext),parent, false)
+       val binding:CardTasarimBinding = DataBindingUtil.inflate(LayoutInflater.from(mContext),R.layout.card_tasarim, parent,false)
        return CardTasarimTutucu(binding)  //bu sınıf sayesinde tasarım üzerindeki görsel nesnelere erişebilirriz
     }
 
@@ -30,7 +32,7 @@ class FilmlerAdapter(var mContext: Context,var filmlerListesi:List<Filmler>)
         val t=holder.tasarim
         t.imageViewFilm.setImageResource(
             mContext.resources.getIdentifier(film.resim,"drawable",mContext.packageName))
-        t.textViewFiyat.text="${film.fiyat} ₺"
+        t.filmnesnesi=film
 
 
         t.CardViewFilm.setOnClickListener{
